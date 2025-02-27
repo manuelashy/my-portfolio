@@ -281,6 +281,7 @@ header {
 
 .skill-card:hover {
   transform: translateY(-10px);
+  background-color: #ffc107;
 }
 
 .skill-card h3 {
@@ -386,11 +387,59 @@ header {
   /* background-color: #6c757d; */
 }
 
-/* .project-grid {
-  align-items: center;
+.projects .project-content {
+  /* display: flex; */
+}
+
+.project-content .project-grid {
+  width: 300px;
   text-align: center;
-  padding: 0 50px;
-} / */
+  height: 500px;
+  /* padding: 30px 50px;
+  display: flex; */
+  /* grid-template-columns: 2fr 2fr 2fr; */
+  background-color: #4361ee;
+  position: relative;
+}
+
+.project-content .project-grid .grid-text {
+  width: 100%;
+  color: #ffffff;
+  position: absolute;
+  top: 200px;
+  align-items: center;
+}
+
+.project-content .project-grid .btn {
+  /* position: relative; */
+  top: 100px;
+  width: 50%;
+  background-color: #f48c06;
+  display: inline-block;
+  justify-items: center;
+  padding: 6px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  position: relative;
+  top: 10px;
+}
+
+.project-content .project-grid img {
+  width: 100%;
+  /* height: 40%; */
+  display: flex;
+}
+
+.project-content .text-area {
+  width: 100%;
+  justify-items: center;
+}
+
+.project-content .text-area h1 {
+  font-size: 2.2rem;
+}
 
 /* Contact Section */
 .contact {
@@ -520,4 +569,19 @@ footer {
 
 .timeline-item::after {
   left: 20px;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.element {
+  animation: slide-in 1s ease-out;
 }
