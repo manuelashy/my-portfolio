@@ -446,7 +446,7 @@ header {
 .project {
   padding: 0 100px;
   background-image: url(/img/bg3.jpg);
-  height: 120dvh;
+  /* height: 120dvh; */
   background-attachment: fixed;
 }
 
@@ -454,84 +454,92 @@ header {
   background-color: rgba(0, 0, 0, 0.7);
 } */
 
-.project-content .project-grid {
-  width: 300px;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
   text-align: center;
-  height: 500px;
-  border-color: #3a56d4;
-  /* background-color: #4361ee; */
-  position: relative;
-  top: 70px;
-}
-.project-content .text-area {
-  position: relative;
-  top: 30px;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 2.5em;
 }
 
-.project-content .project-grid .grid-text {
-  width: 100%;
-  color: #ffffff;
-  position: absolute;
-  top: 200px;
-  align-items: center;
-}
-
-.project-content .project-grid .btn {
-  /* position: relative; */
-  top: 100px;
-  width: 50%;
-  background-color: #f48c06;
-  display: inline-block;
-  justify-items: center;
-  padding: 6px 20px;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background-color 0.3s;
-  position: relative;
-  top: 10px;
-}
-
-.project-content .project-grid img {
-  width: 100%;
-  /* height: 40%; */
-  display: flex;
-}
-
-.project-content .text-area {
-  width: 100%;
-  justify-items: center;
-}
-
-.project-content .text-area h1 {
-  font-size: 2.5rem;
-  color: #0404bb;
-}
-
-.project-content .text-area h1::after {
-  content: "";
-  position: absolute;
-  width: 80px;
-  height: 5px;
-  background-color: #4361ee;
-  top: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.grid-text h2 {
-  color: #1a1a2e;
-  font-size: 30px;
-}
-
-.project-content .pr-grid {
+.project-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
-.project-grid:hover {
-  transform: translate(0.5s);
-  background-color: #f48c06;
+.project-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-image {
+  width: 100%;
+  height: 250px;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.project-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.project-content {
+  padding: 20px;
+  text-align: center;
+  background-color: #ff9900;
+  color: white;
+}
+
+.project-description {
+  margin-bottom: 15px;
+}
+
+.demo-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: white;
+  color: #ff9900;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.demo-button:hover {
+  background-color: #ff9900;
+  color: white;
+  border: 1px solid white;
+}
+
+@media (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Contact Section */
@@ -663,6 +671,12 @@ footer {
 .timeline-item::after {
   left: 20px;
 }
+
+/* .project-content .pr-grid {
+  display: flex;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 100px;
+} */
 
 @keyframes slide-in {
   0% {

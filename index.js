@@ -73,3 +73,20 @@ function typeText() {
 window.onload = function () {
   setTimeout(typeText, 1000);
 };
+
+// Scroll reveal animation
+function revealOnScroll() {
+  const cards = document.querySelectorAll(".project-card");
+
+  cards.forEach((card) => {
+    const cardTop = card.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (cardTop < windowHeight * 0.8) {
+      card.classList.add("visible");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
